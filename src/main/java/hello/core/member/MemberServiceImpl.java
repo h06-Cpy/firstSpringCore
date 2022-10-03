@@ -1,9 +1,14 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository; //추상화에만 의존
 
+    @Autowired  //ac.getBean(MemberRepository.class)
     public MemberServiceImpl(MemberRepository memberRepository) { //생성자 주입을 통해 DIP, OCP 지킴
         this.memberRepository = memberRepository;
     }
